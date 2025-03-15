@@ -6,7 +6,6 @@ import (
 	"github/pull_request_webhook/domain/value_objects"
 	"log"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
