@@ -3,12 +3,9 @@ package infrastructure
 import "github.com/gin-gonic/gin"
 
 func Routes(router *gin.Engine) {
-
-
-	routes := router.Group("pull_request")
-
+	routes := router.Group("webhook")
 	{
-		routes.POST("/process", HandlePullRequestEvent)
+		routes.POST("/process-pull-request", HandlePullRequestEvent)
+		routes.POST("/process-deploy", HandleDeployEvent) 
 	}
-
 }

@@ -1,13 +1,13 @@
 package application
 
 import (
-	/* "bytes" */
+	"bytes" 
 	"encoding/json"
 	"fmt"
 	"github/pull_request_webhook/domain/value_objects"
 	"log"
-	/* "net/http" */
-	/* "os" */
+	"net/http" 
+	"os" 
 	"time"
 )
 
@@ -37,7 +37,7 @@ func ProcessDeployEvent(rawData []byte) (int, string) {
 
 	log.Printf("Mensaje a enviar a Discord: %s", message) 
 
-	if err := sendToDiscord(message); err != nil {
+	if err := sendToDiscord2(message); err != nil {
 		log.Printf("Error al enviar el mensaje a Discord: %v", err)
 		return 500, "Error al enviar el mensaje a Discord"
 	}
@@ -45,7 +45,7 @@ func ProcessDeployEvent(rawData []byte) (int, string) {
 	return 200, message
 }
 
-/* func sendToDiscord(message string) error {
+func sendToDiscord2(message string) error {
 	webhookURL := os.Getenv("DISCORD_WEBHOOK_TEST") // Usar el webhook de pruebas
 	if webhookURL == "" {
 		return fmt.Errorf("DISCORD_WEBHOOK_TEST no está definido en el archivo .env")
@@ -71,7 +71,7 @@ func ProcessDeployEvent(rawData []byte) (int, string) {
 	}
 
 	return nil
-} */
+} 
 
 func formatDeploySuccessMessage(event value_objects.DeployEvent) string {
 	return fmt.Sprintf("✅ *Despliegue Exitoso*\n"+
